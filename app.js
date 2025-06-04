@@ -22,11 +22,23 @@ db.connect((error) =>{
   console.log("Conectado ao Banco!")
 })
 
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'public/uploads/');
+  },
+  filename:(req, file, cb) => {
+    const uniqueName = Date.now() + '-' + file.originalname;
+    cb(null, uniqueName)
+  }
+})
+
+const upload = multer({storage}) 
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
   res.render("index", { title: "Portifólio Diego" });
@@ -55,13 +67,15 @@ app.delete("/projects/:id", (req, res) => {
 })
 
 // CREATE de um projeto
-app.post("/cadastro-projeto", (req, res) => {
-  const {titulo, descricao, estado, url, imagem} = req.body;
+app.post("/cadastro-projeto", upload.single('imagem'), (req, res) => {
+  const {titulo, descricao, estado, url} = req.body;
+  const imagem = '/uploads/' + req.file.filename; 
+
   const sql = 'INSERT INTO projetos (titulo, descricao, estado, url, imagem) VALUES (?, ?, ?, ?, ?)' 
   
   db.query(sql, [titulo, descricao, estado, url, imagem], (err, result) => {
     if(err) return res.status(500).send(err);
-    res.send({ id: result.insertId, nome, descricao, estado, url, imagem });
+    res.redirect('/projects');
   })
 })
 

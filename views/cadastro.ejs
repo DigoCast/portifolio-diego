@@ -6,30 +6,31 @@
             <p class="title-name">Cadastro</p>
 
             <div class="card-cadastro">
-                <form action="" class="form-cadastro">
+                <form action="/cadastro-projeto" method="POST" enctype="multipart/form-data" class="form-cadastro">
                     <div class="row-form-cadastro">
-                        <label for="estado">Titulo do Projeto</label>
-                        <input type="text" placeholder="Titulo">
+                        <label for="titulo">Titulo do Projeto</label>
+                        <input type="text" name="titulo" placeholder="Titulo" required>
                     </div>
                     <div class="row-form-cadastro">
-                        <label for="estado">Descricao do Projeto</label>
-                        <textarea type="text" placeholder="Breve descricao"></textarea>
+                        <label for="descricao">Descricao do Projeto</label>
+                        <textarea name="descricao" type="text" placeholder="Breve descricao"></textarea>
                     </div>
                     <div class="row-form-cadastro">
                         <label for="estado">Estado do Projeto</label>
-                        <select name="estado" id="estado">
+                        <select name="estado" required>
                             <option value="finalizado">Finalizado</option>
                             <option value="em andamento">Em andamento</option>
                         </select>
                     </div>
                     <div class="row-form-cadastro">
-                        <label for="estado">URL do Projeto</label>
-                        <input type="text" placeholder="URL do deploy ou github">
+                        <label for="url">URL do Projeto</label>
+                        <input type="text" name="url" placeholder="URL do deploy ou github">
                     </div>
                     <div class="row-form-cadastro">
-                        <label for="estado">Imagem do Projeto</label>
-                        <input type="file" placeholder="Imagem">
+                        <label for="imagem">Imagem do Projeto</label>
+                        <input type="file" name="imagem" placeholder="Imagem">
                     </div>
+                    <button type="submit">Cadastrar</button>
                 </form>
             </div>
         </div>
