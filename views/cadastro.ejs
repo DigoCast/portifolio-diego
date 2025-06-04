@@ -1,0 +1,39 @@
+<%- include('partials/header') %>
+
+
+    <main>
+        <div class="container-cadastro">
+            <p class="title-name">Cadastro</p>
+
+            <div class="card-cadastro">
+                <form action="" class="form-cadastro">
+                    <div class="row-form-cadastro">
+                        <label for="estado">Titulo do Projeto</label>
+                        <input type="text" placeholder="Titulo">
+                    </div>
+                    <div class="row-form-cadastro">
+                        <label for="estado">Descricao do Projeto</label>
+                        <textarea type="text" placeholder="Breve descricao"></textarea>
+                    </div>
+                    <div class="row-form-cadastro">
+                        <label for="estado">Estado do Projeto</label>
+                        <select name="estado" id="estado">
+                            <option value="finalizado">Finalizado</option>
+                            <option value="em andamento">Em andamento</option>
+                        </select>
+                    </div>
+                    <div class="row-form-cadastro">
+                        <label for="estado">URL do Projeto</label>
+                        <input type="text" placeholder="URL do deploy ou github">
+                    </div>
+                    <div class="row-form-cadastro">
+                        <label for="estado">Imagem do Projeto</label>
+                        <input type="file" placeholder="Imagem">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+
+    <%- include('partials/footer') %>

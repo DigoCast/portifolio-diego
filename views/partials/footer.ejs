@@ -4,32 +4,8 @@
         <div class="links"><i class="fa-brands fa-github fa-2x" style="color: #2563eb;"></i></div>
     </a>
 </footer>
-<script>
-    const checkbox = document.getElementById('tema-btn');
-    const body = document.body;
-
-    window.addEventListener('DOMContentLoaded', () => {
-        const temaSalvo = localStorage.getItem('tema');
-
-        if (temaSalvo === 'dark-mode') {
-            body.classList.add('dark-mode');
-            checkbox.checked = true;
-        } else {
-            body.classList.remove('dark-mode');
-            checkbox.checked = false;
-        }
-    });
-
-    checkbox.addEventListener('change', () => {
-        if (checkbox.checked) {
-            body.classList.add('dark-mode');
-            localStorage.setItem('tema', 'dark-mode');
-        } else {
-            body.classList.remove('dark-mode');
-            localStorage.setItem('tema', 'light');
-        }
-    });
-</script>
+<script src="/js/tema.js"></script>
+<script src="/js/projetos.js"></script>
 </body>
 
 </html>

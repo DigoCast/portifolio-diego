@@ -3,54 +3,36 @@
     <main>
 
         <div class="container-projects">
-            <b style="font-size: 2rem; color: var(--hover-color);">Projetos</b>
-            <div class="project-card">
-                <div class="project-image">
+            <b class="title-name">Projetos</b>
+            <div class="header-projects">
+                <input type="text" id="searchInput" placeholder="Digite para pesquisar..." class="searchInput">
+                <a class="cadastro-projeto-button" href="/cadastro-projeto">Cadastrar Projeto</a>
+            </div>
 
-                    <img src="/images/alfalog.png" alt="">
+            <% if (projetos.length == 0) { %>
+                <div class="projetos-vazio">
+                    Não há projetos ainda
+                </div>
+            <% } %>
+            <% projetos.forEach(projeto=> { %>
+                <div class="project-card" data-title="<%= projeto.titulo.toLowerCase() %>">
+                    <div class="project-image">
+                        <img src="<%= projeto.imagem %>" alt="<%= projeto.titulo %>" width="200px" height="300px">
+                    </div>
+                    <div class="project-description">
+                        <h2>
+                            <%= projeto.titulo %> | status: <b class="<%= projeto.estado === 'finalizado' ? 'status-finalizado' : 'status-em-andamento' %>"><%= projeto.estado %></b>
+                        </h2>
 
-                </div>
-                <div class="project-description">
-                    <h2>AlfaLog | status: <b style="color: yellow; font-size: 14px;">Em andamento</b></h2>
-                    <p>
-                        Plataforma web que disponibiliza informações sobre o desempenho dos Estados Brasileiros no
-                        comércio exterior, com base nos dados abertos do Ministério do Desenvolvimento, Indústria,
-                        Comércio e Serviços.
-                    </p>
-                    <div class="proj-button">
-                        <a href="https://github.com/Bug-Busters-F/alfalog.git" target="_blank">Acessar Projeto</a>
+                        <p><%= projeto.descricao %></p>
+
+                        <div class="proj-button">
+                            <a onclick="deletarProjeto(<%= projeto.id %>)" class="delete-button-projetos">Deletar</a>
+                            <a href="<%= projeto.url %>" target="_blank" class="acessar-projetos">Acessar Projeto</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="project-card">
-                <div class="project-description">
-                    <h2>Scrum Academy | status: <b style="color: green; font-size: 14px;">Finalizado</b></h2>
-                    <p>
-                        Projeto fundamentado na metodologia ágil SCRUM disseminando eficientemente todas as informações relevantes sobre os processos e artefatos da metodologia ágil (SCRUM), de modo que o conteúdo esteja claro e possa ser compreendido por quaisquer usuários.
-                    </p>
-                    <div class="proj-button">
-                        <a href="https://github.com/Bug-Busters-F/scrum-academy.git" target="_blank">Acessar Projeto</a>
-                    </div>
-                </div>
-                <div class="project-image">
-                    <img src="/images/scrumAcademy.png" alt="">
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="/images/alplaca.png" alt="" width="200px" height="300px">
-                
-                </div>
-                <div class="project-description">
-                    <h2>Alplaca | status: <b style="color: green; font-size: 14px;">Finalizado</b></h2>
-                    <p>
-                        Projeto que utiliza de um modelo de ia para ler placas de carros e salva-las em um banco de dados
-                    </p>
-                    <div class="proj-button">
-                        <a href="https://github.com/Bug-Busters-F/alplaca.git" target="_blank">Acessar Projeto</a>
-                    </div>
-                </div>
-            </div>
+            <% }); %>
 
         </div>
     </main>

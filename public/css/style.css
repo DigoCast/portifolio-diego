@@ -16,6 +16,14 @@ body.dark-mode {
   transition: background-color 0.3s ease, color 0.2s ease-in-out;
 }
 
+html{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   height: 100%;
   font-family: var(--font-family);
@@ -26,7 +34,7 @@ body {
   display: flex;
   flex-direction: column;
 }
-
+  
 header,
 footer {
   background-color: var(--header-footer-bg);
@@ -36,7 +44,6 @@ footer {
 header {
   position: sticky;
   top: 0;
-  overflow: hidden;
 }
 
 footer {
@@ -257,12 +264,12 @@ hr.gradient {
 
 .proj-button {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   margin-top: 40px;
 }
 
-.proj-button a {
+.acessar-projetos{
   color: var(--text-color);
   text-decoration: none;
   padding: 10px 20px;
@@ -270,16 +277,32 @@ hr.gradient {
   border: var(--link-color) 1px solid;
 }
 
-.proj-button a:hover {
+.acessar-projetos:hover {
   background-color: var(--bg-color);
   color: var(--link-color);
   box-shadow: 0 0 10px 10px rgba(59, 130, 246, 0.1);
+  cursor: pointer;
+}
+
+.delete-button-projetos{
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: red 1px solid;
+}
+
+.delete-button-projetos:hover{
+  background-color: var(--bg-color);
+  color: red;
+  box-shadow: 0 0 10px 10px rgb(255, 0, 0, 0.1);
+  cursor: pointer;
 }
 
 .container-projects {
     display: flex;
     flex-direction: column;
-    padding: 100px 10%;
+    padding: 40px 10%;
     letter-spacing: 0.1rem;
     row-gap: 60px;
 }
@@ -316,4 +339,81 @@ hr.gradient {
 
 .project-description{
     width: 40%;
+}
+
+.status-finalizado {
+  color: green;
+  font-size: 14px;
+}
+
+.status-em-andamento {
+  color: yellow;
+  font-size: 14px;
+}
+
+.projetos-vazio{
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-projects{
+  width: 100%;
+  display: flex;
+  gap: 20px;
+}
+
+.cadastro-projeto-button{
+  color: #f3f4f6;
+  background-color: var(--hover-color);
+  text-decoration: none;
+  padding: 5px;
+  border-radius: 10px;
+  border: var(--link-color) 1px solid;
+  font-size: 16px;
+}
+
+.searchInput{
+  background-color: var(--header-footer-bg);
+  border: 1px solid var(--hover-color);
+  color: var(--text-color);
+  border-radius: 10px;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.searchInput:focus{
+    box-shadow: 0 0 10px 10px rgba(59, 130, 246, 0.2);
+}
+
+.container-cadastro{
+  display: flex;
+  flex-direction: column;
+  padding: 40px 10%;
+  letter-spacing: 0.1rem;
+}
+
+.card-cadastro{
+  background-color: var(--header-footer-bg);
+  padding: 20px;
+}
+
+.form-cadastro{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.row-form-cadastro{
+  display: flex;
+  flex-direction: column;
+}
+
+.form-cadastro input{
+  padding: 10px;
+}
+.form-cadastro select{
+  padding: 10px;
 }
